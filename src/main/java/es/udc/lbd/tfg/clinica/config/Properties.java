@@ -1,4 +1,4 @@
-package es.udc.lbd.asi.restexample.config;
+package es.udc.lbd.tfg.clinica.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;

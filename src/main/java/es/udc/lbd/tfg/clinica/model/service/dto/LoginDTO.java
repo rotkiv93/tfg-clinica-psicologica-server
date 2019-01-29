@@ -1,4 +1,4 @@
-package es.udc.lbd.asi.restexample.model.service.dto;
+package es.udc.lbd.tfg.clinica.model.service.dto;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;

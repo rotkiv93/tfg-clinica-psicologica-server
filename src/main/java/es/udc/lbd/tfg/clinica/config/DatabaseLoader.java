@@ -1,4 +1,4 @@
-package es.udc.lbd.asi.restexample.config;
+package es.udc.lbd.tfg.clinica.config;
 
 import javax.annotation.PostConstruct;
 
@@ -8,13 +8,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.transaction.annotation.Transactional;
 
-import es.udc.lbd.asi.restexample.model.domain.Post;
-import es.udc.lbd.asi.restexample.model.domain.Tag;
-import es.udc.lbd.asi.restexample.model.exception.UserLoginExistsException;
-import es.udc.lbd.asi.restexample.model.repository.PostDAO;
-import es.udc.lbd.asi.restexample.model.repository.TagDAO;
-import es.udc.lbd.asi.restexample.model.repository.UserDAO;
-import es.udc.lbd.asi.restexample.model.service.UserService;
+import es.udc.lbd.tfg.clinica.model.domain.Post;
+import es.udc.lbd.tfg.clinica.model.domain.Tag;
+import es.udc.lbd.tfg.clinica.model.exception.UserLoginExistsException;
+import es.udc.lbd.tfg.clinica.model.repository.PostDAO;
+import es.udc.lbd.tfg.clinica.model.repository.TagDAO;
+import es.udc.lbd.tfg.clinica.model.repository.UserDAO;
+import es.udc.lbd.tfg.clinica.model.service.UserService;
 
 @Configuration
 public class DatabaseLoader {

@@ -1,6 +1,6 @@
-package es.udc.lbd.asi.restexample.model.service.dto;
+package es.udc.lbd.tfg.clinica.model.service.dto;
 
-import es.udc.lbd.asi.restexample.model.domain.User;
+import es.udc.lbd.tfg.clinica.model.domain.User;
 
 public class UserDTOPrivate {
     private Long id;

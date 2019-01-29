@@ -1,4 +1,4 @@
-package es.udc.lbd.asi.restexample.web.exception;
+package es.udc.lbd.tfg.clinica.web.exception;
 
 public class RequestBodyNotValidException extends ResourceException {
     public RequestBodyNotValidException(String errorMsg) {

@@ -1,6 +1,6 @@
-package es.udc.lbd.asi.restexample.web.exception;
+package es.udc.lbd.tfg.clinica.web.exception;
 
-import es.udc.lbd.asi.restexample.model.domain.Post;
+import es.udc.lbd.tfg.clinica.model.domain.Post;
 
 public class IdAndBodyNotMatchingOnUpdateException extends ResourceException {
     public IdAndBodyNotMatchingOnUpdateException(Class<Post> clazz) {

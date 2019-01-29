@@ -1,4 +1,4 @@
-package es.udc.lbd.asi.restexample.config;
+package es.udc.lbd.tfg.clinica.config;
 
 import org.springframework.beans.factory.BeanInitializationException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,11 +18,11 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-import es.udc.lbd.asi.restexample.security.JWTConfigurer;
-import es.udc.lbd.asi.restexample.security.MyAccessDeniedHandler;
-import es.udc.lbd.asi.restexample.security.MyUnauthorizedEntryPoint;
-import es.udc.lbd.asi.restexample.security.MyUserDetailsService;
-import es.udc.lbd.asi.restexample.security.TokenProvider;
+import es.udc.lbd.tfg.clinica.security.JWTConfigurer;
+import es.udc.lbd.tfg.clinica.security.MyAccessDeniedHandler;
+import es.udc.lbd.tfg.clinica.security.MyUnauthorizedEntryPoint;
+import es.udc.lbd.tfg.clinica.security.MyUserDetailsService;
+import es.udc.lbd.tfg.clinica.security.TokenProvider;
 
 @Configuration
 @EnableWebSecurity

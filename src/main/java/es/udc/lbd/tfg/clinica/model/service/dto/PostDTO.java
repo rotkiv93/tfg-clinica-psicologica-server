@@ -1,4 +1,4 @@
-package es.udc.lbd.asi.restexample.model.service.dto;
+package es.udc.lbd.tfg.clinica.model.service.dto;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -7,7 +7,7 @@ import java.util.List;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
-import es.udc.lbd.asi.restexample.model.domain.Post;
+import es.udc.lbd.tfg.clinica.model.domain.Post;
 
 public class PostDTO {
     private Long id;
