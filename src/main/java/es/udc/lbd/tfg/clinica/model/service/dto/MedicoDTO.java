@@ -1,43 +1,45 @@
-package es.udc.lbd.tfg.clinica.model.domain;
+package es.udc.lbd.tfg.clinica.model.service.dto;
 
 import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
-@Entity
-public class Medico {
+import es.udc.lbd.tfg.clinica.model.domain.Medico;
 
-	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-	
-	@Column(nullable = false)
+public class MedicoDTO {
+
+	private Long id;
+
+	@NotEmpty
 	private String nombre;
-	
-	@Column(nullable = false)
+
+	@NotEmpty
 	private String apellido1;
-	
-	@Column(nullable = false)
+
+	@NotEmpty
 	private String apellido2;
-	
-	@Column(nullable = false, unique = true)
+
+	@NotNull
 	private Integer NSS;
 
-	@Column
+	@NotEmpty
 	private String contraseña;
 	
-	public Medico(){
+	
+	public MedicoDTO(){
 		
 	}
 	
-	public Medico(String nombre, String apellido1, String apellido2, Integer NSS) {
-		super();
-		this.nombre = nombre;
-		this.apellido1 = apellido1;
-		this.apellido2 = apellido2;
-		this.NSS = NSS;
+	public MedicoDTO(Medico medico){
+		this.id = medico.getId();
+		this.nombre = medico.getNombre();
+		this.apellido1 = medico.getApellido1();
+		this.apellido2 = medico.getApellido2();
+		this.NSS = medico.getNSS();
+		this.contraseña = medico.getContraseña();
 	}
 
 	public Long getId() {
@@ -79,7 +81,7 @@ public class Medico {
 	public void setNSS(Integer nSS) {
 		NSS = nSS;
 	}
-	
+
 	public String getContraseña() {
 		return contraseña;
 	}
@@ -88,10 +90,4 @@ public class Medico {
 		this.contraseña = contraseña;
 	}
 
-	@Override
-	public String toString() {
-		return "Medico [id=" + id + ", nombre=" + nombre + ", apellido1=" + apellido1 + ", apellido2=" + apellido2
-				+ ", NSS=" + NSS + "]";
-	}
-	
 }

@@ -4,6 +4,8 @@ import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -15,25 +17,25 @@ public class Paciente {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 	
-	@Column
+	@Column(nullable = false)
 	private String nombre;
 	
-	@Column
+	@Column(nullable = false)
 	private String apellido1;
 	
-	@Column
+	@Column(nullable = false)
 	private String apellido2;
 	
-	@Column
+	@Column(nullable = false, unique = true)
 	private String DNI;
 	
-	@Column
+	@Enumerated(EnumType.STRING)
 	private GeneroEnum genero;
 	
-	@Column
+	@Column(unique = true)
 	private String correo;
 
-	@Column
+	@Column(nullable = false)
 	private LocalDate fecha_nacimiento;
 	
 	/*usages of localDate
@@ -42,10 +44,10 @@ public class Paciente {
 		LocalDate.parse("2015-02-20");
 	*/
 	
-	@Column
+	@Column(nullable = false)
 	private String dirección;
 	
-	@Column
+	@Column(nullable = false, unique = true)
 	private Integer num_telefono;
 
 	

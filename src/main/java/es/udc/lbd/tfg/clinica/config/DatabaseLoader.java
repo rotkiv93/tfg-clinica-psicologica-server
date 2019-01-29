@@ -8,11 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.transaction.annotation.Transactional;
 
-import es.udc.lbd.tfg.clinica.model.domain.Post;
-import es.udc.lbd.tfg.clinica.model.domain.Tag;
+import es.udc.lbd.tfg.clinica.model.domain.Medico;
 import es.udc.lbd.tfg.clinica.model.exception.UserLoginExistsException;
-import es.udc.lbd.tfg.clinica.model.repository.PostDAO;
-import es.udc.lbd.tfg.clinica.model.repository.TagDAO;
+import es.udc.lbd.tfg.clinica.model.repository.MedicoDAO;
 import es.udc.lbd.tfg.clinica.model.repository.UserDAO;
 import es.udc.lbd.tfg.clinica.model.service.UserService;
 
@@ -25,12 +23,10 @@ public class DatabaseLoader {
 
     @Autowired
     private UserService userService;
-
+    
     @Autowired
-    private PostDAO postDAO;
+    private MedicoDAO medicoDAO;
 
-    @Autowired
-    private TagDAO tagDAO;
 
     @Autowired
     private DatabaseLoader databaseLoader;
@@ -57,29 +53,12 @@ public class DatabaseLoader {
         userService.registerUser("laura", "laura");
         userService.registerUser("pedro", "pedro");
 
-        Tag news = new Tag("news");
-        Tag podcast = new Tag("podcast");
-        Tag tech = new Tag("tech");
-
-        tagDAO.save(news);
-        tagDAO.save(podcast);
-        tagDAO.save(tech);
-
-        Post post = new Post("Título 1", "Texto del primer post", userDAO.findByLogin("pepe"));
-        post.getTags().add(news);
-        post.getTags().add(podcast);
-        postDAO.save(post);
-        post = new Post("Título 2", "Texto del segundo post", userDAO.findByLogin("maria"));
-        post.getTags().add(news);
-        post.getTags().add(tech);
-        postDAO.save(post);
-        post = new Post("Título 3", "Texto del tercero post", userDAO.findByLogin("maria"));
-        postDAO.save(post);
-        post = new Post("Título 4", "Texto del cuarto post", userDAO.findByLogin("maria"));
-        postDAO.save(post);
-        post = new Post("Título 5", "Texto del quinto post", userDAO.findByLogin("pepe"));
-        postDAO.save(post);
-        post = new Post("Título 6", "Texto del sexto post", userDAO.findByLogin("pepe"));
-        postDAO.save(post);
+        
+        Medico medico = new Medico("Medico1", "Apellido1", "Apellido2", 3434434);
+        medicoDAO.save(medico);
+        
+        
+        
+     
     }
 }
