@@ -35,10 +35,14 @@ public class Sesion {
 
 	}
 
-	public Sesion(LocalDate fecha_realizacion, EstadoSesion estado, Medico medico, Paciente paciente) {
+	public Sesion(LocalDate fecha_realizacion, EstadoSesion estado) {
 		super();
 		this.fecha_realizacion = fecha_realizacion;
 		this.estado = estado;
+	}
+	
+	public Sesion(LocalDate fecha_realizacion, EstadoSesion estado, Medico medico, Paciente paciente) {
+		this(fecha_realizacion, estado);
 		this.medico = medico;
 		this.paciente = paciente;
 	}

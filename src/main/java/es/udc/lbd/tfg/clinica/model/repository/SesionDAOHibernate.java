@@ -49,4 +49,16 @@ public class SesionDAOHibernate extends GenericDAOHibernate implements SesionDAO
 				.setParameter("paciente", pac).setParameter("medico", med).list();
 	}
 
+	@Override
+	public List<Sesion> findAllSesionsOfPacient(Paciente paciente) {
+		Paciente pac = pacienteDAO.findById(paciente.getId());
+		return getSession().createQuery("from Sesion p where p.paciente = :paciente")
+				.setParameter("paciente", pac).list();
+	}
+	@Override
+	public List<Sesion> findAllSesionsOfMedic(Medico medico) {
+		Medico med = medicoDAO.findById(medico.getId());
+		return getSession().createQuery("from Sesion p where p.medico = :medico")
+				.setParameter("medico", med).list();
+	}
 }

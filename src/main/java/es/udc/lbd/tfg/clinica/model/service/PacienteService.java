@@ -15,6 +15,7 @@ import es.udc.lbd.tfg.clinica.model.service.dto.PacienteDTO;
 @Service
 @Transactional(readOnly = true, rollbackFor = Exception.class)
 public class PacienteService {
+	
 	@Autowired
 	PacienteDAO pacienteDAO;
 

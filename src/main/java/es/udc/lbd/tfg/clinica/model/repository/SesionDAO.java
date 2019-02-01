@@ -11,6 +11,10 @@ public interface SesionDAO {
 
 	List<Sesion> findAllSesionsOfPacientAndMedic(Paciente paciente, Medico medico);
 	
+	List<Sesion> findAllSesionsOfPacient(Paciente paciente);
+	
+	List<Sesion> findAllSesionsOfMedic(Medico medico);
+	
 	Sesion findById(Long id);
 
 	void save(Sesion sesion);
