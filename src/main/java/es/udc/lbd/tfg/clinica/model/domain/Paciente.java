@@ -55,10 +55,9 @@ public class Paciente {
 		
 	}
 	
-	public Paciente(Long id, String nombre, String apellido1, String apellido2, String DNI, GeneroEnum genero,
+	public Paciente(String nombre, String apellido1, String apellido2, String DNI, GeneroEnum genero,
 			String correo, LocalDate fecha_nacimiento, String dirección, Integer num_telefono) {
 		super();
-		this.id = id;
 		this.nombre = nombre;
 		this.apellido1 = apellido1;
 		this.apellido2 = apellido2;

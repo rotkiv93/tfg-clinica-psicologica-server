@@ -1,5 +1,6 @@
 package es.udc.lbd.tfg.clinica.model.service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -29,27 +30,34 @@ public class UserService {
     public List<UserDTOPublic> findAll() {
         return userDAO.findAll().stream().map(user -> new UserDTOPublic(user)).collect(Collectors.toList());
     }
-
-    public void registerUser(String login, String password) throws UserLoginExistsException {
-        registerUser(login, password, false);
+    
+    public UserDTOPrivate findByLogin(String login) {
+        return new UserDTOPrivate(userDAO.findByLogin(login));
+    }
+    
+    @Transactional(readOnly = false)
+    public UserDTOPrivate registerUser(String login, String password) throws UserLoginExistsException {
+        return registerUser(login, password, false);
     }
 
-    public void registerUser(String login, String password, boolean isAdmin) throws UserLoginExistsException {
+    @Transactional(readOnly = false)
+    public UserDTOPrivate registerUser(String login, String password, boolean isAdmin) throws UserLoginExistsException {
         if (userDAO.findByLogin(login) != null) {
             throw new UserLoginExistsException("User login " + login + " already exists");
+           
         }
-
-        User user = new User();
+        
+        User user = new User(login,password);
         String encryptedPassword = passwordEncoder.encode(password);
-
-        user.setLogin(login);
         user.setPassword(encryptedPassword);
+
         user.setAuthority(UserAuthority.USER);
         if (isAdmin) {
             user.setAuthority(UserAuthority.ADMIN);
         }
 
         userDAO.save(user);
+        return new UserDTOPrivate(user);
     }
 
     public UserDTOPrivate getCurrentUserWithAuthority() {
@@ -58,5 +66,12 @@ public class UserService {
             return new UserDTOPrivate(userDAO.findByLogin(currentUserLogin));
         }
         return null;
+    }
+    
+    @Transactional(readOnly = false)
+    public UserDTOPrivate updateUser(UserDTOPrivate user) {
+    	User usuario = userDAO.findByLogin(user.getLogin());
+    	userDAO.save(usuario);
+    	return new UserDTOPrivate(usuario);
     }
 }
